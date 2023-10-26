@@ -7,7 +7,7 @@ app_name="crels"
 branch="main"
 
 # List of dependencies
-dependencies=("gcc" "wget" "docker")
+dependencies=("gcc" "curl" "docker")
 
 # Loop through the dependencies
 for dependency in "${dependencies[@]}"; do
@@ -17,7 +17,7 @@ for dependency in "${dependencies[@]}"; do
     fi
 done
 
-curl -o "$app_name.zip" "https://github.com/danidomi/$app_name/archive/refs/heads/$branch.zip"
+curl -o "$app_name.zip" -sLJO "https://github.com/danidomi/$app_name/archive/refs/heads/$branch.zip"
 
 # Unzip it
 unzip "$app_name".zip
